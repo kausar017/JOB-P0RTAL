@@ -2,7 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import bg from '../../assets/cool-background.svg'
 
 import './Navbar.css'
+import { useContext } from "react";
+import Authcontext from "../../Authentication/context/AuthContext";
 const Navbar = () => {
+
+    const { user, singOut } = useContext(Authcontext)
+    console.log(user);
+
 
     const link = <>
         <div className="space-x-3 flex max-sm:flex-col">
@@ -19,8 +25,8 @@ const Navbar = () => {
             backgroundImage: `url(${bg})`,
             backgroundSize: "cover",
             backgroundPosition: "end",
-                // height: "100vh",
-                // width: "100%",
+            // height: "100vh",
+            // width: "100%",
 
         }}>
             <div className="navbar container mx-auto ">
@@ -55,7 +61,9 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end space-x-2">
                     <Link to={'/register'} className="hover:underline hover:text-sky-500 text-white">Register</Link>
-                    <Link to={'/login'} className="btn btn-sm btn-outline text-white">Login</Link>
+                    {
+                        user ? <button onClick={singOut} className="btn btn-sm btn-outline text-white">singOut</button> : <Link to={'/login'} className="btn btn-sm btn-outline text-white">Login</Link>
+                    }
                 </div>
             </div>
         </div>

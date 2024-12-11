@@ -47,10 +47,12 @@ const Register = () => {
             .then(res => {
                 console.log(res.user);
                 Swal.fire('Regiestation Succesfully')
+                form.reset()
             })
             .catch(error => {
                 console.log(error.massage);
                 Swal.fire('Your Email Allrady Registared')
+                form.reset()
             })
     }
 
