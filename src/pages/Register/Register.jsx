@@ -4,6 +4,8 @@ import registerLotti from '../../assets/Lottify/ragister.json'
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import Authcontext from '../../Authentication/context/AuthContext';
+import { Link} from 'react-router-dom';
+
 const Register = () => {
 
     const { creatUser } = useContext(Authcontext)
@@ -56,19 +58,17 @@ const Register = () => {
             })
     }
 
-
-
     return (
         <div>
             <div className="hero min-h-screen" style={{
                 backgroundImage: `url(${bg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                // height: "100vh",
+                height: "100vh",
                 width: "100%",
 
             }}>
-                <div className="container mx-auto md:flex items-center justify-around py-[110px]">
+                <div className="container mx-auto md:flex items-center p-3 justify-around py-[110px]">
                     <div className='space-y-4'>
                         <h1 className="text-5xl text-center font-bold max-sm:text-white p-1">Regester now!</h1>
                         <Lottie className='max-w-96 max-sm:p-5' animationData={registerLotti}></Lottie>
@@ -93,6 +93,9 @@ const Register = () => {
                                 <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
+                        <div className="ml-4 my-4 text-white">
+                            New to this Website? please <Link className="ml-2 font-semibold underline hover:text-red-500" to={'/login'}>Login</Link>
+                        </div>
                     </div>
 
 

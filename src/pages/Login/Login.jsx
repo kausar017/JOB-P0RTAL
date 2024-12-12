@@ -4,10 +4,12 @@ import loginLotty from '../../assets/Lottify/login.json'
 import { useContext } from 'react';
 import Authcontext from '../../Authentication/context/AuthContext';
 import Swal from 'sweetalert2';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-
-    const { singIn } = useContext(Authcontext)
+    const navigat = useNavigate()
+    const location = useLocation()
+    const { singIn, googleLogin } = useContext(Authcontext)
 
     const validatePassword = (password) => {
         const uppercasePattern = /[A-Z]/;
@@ -55,8 +57,12 @@ const Login = () => {
             })
 
 
-    }
+    };
 
+    const handaleGoogleLogin = () => {
+        googleLogin()
+        navigat('/')
+    }
     return (
         <div >
             <div className="hero min-h-screen" style={{
@@ -67,13 +73,14 @@ const Login = () => {
                 width: "100%",
 
             }}>
-                <div className="container mx-auto md:flex items-center justify-around py-[110px]">
+                <div className="container mx-auto md:flex items-center p-3 justify-around py-[110px]">
                     <div className='space-y-4'>
                         <h1 className="text-5xl text-center font-bold max-sm:text-white p-1">Login now!</h1>
                         <Lottie className='max-w-96 max-sm:p-5' animationData={loginLotty}></Lottie>
                     </div>
 
                     <div className='card backdrop-blur-lg border-2 md:w-96 shrink-0  max-sm:m-3'>
+                        <h1 className="text-5xl text-center font-bold text-white p-1">Login</h1>
                         <form onSubmit={handaleSIngIn} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -93,7 +100,14 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
+                            <div className='flex gap-3 justify-center items-center'>
+                                <Link onClick={handaleGoogleLogin} className='btn btn-sm btn-outline hover:bg-pink-500'>Google Login</Link>
+                                <button className='btn btn-sm btn-outline hover:bg-rose-500'>Github Login</button>
+                            </div>
                         </form>
+                        <div className="ml-4 my-4 text-white">
+                            New to this Website? please<Link className="ml-2 font-semibold underline hover:text-red-500" to={'/register'}>Reagister</Link>
+                        </div>
                     </div>
                 </div>
             </div>
