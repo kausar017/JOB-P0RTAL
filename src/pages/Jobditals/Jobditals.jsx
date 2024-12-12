@@ -22,11 +22,13 @@ const Jobditals = () => {
         >
             <div className="container mx-auto">
                 <div className="backdrop-blur-lg border-2 rounded-xl m-5">
-                    <div className="hero-content flex-col lg:flex-row justify-around">
-                        <img
-                            src={company_logo}
-                            className="w-44 rounded-lg shadow-2xl" />
-                        <div className="">
+                    <div className="grid md:grid-cols-12 p-5">
+                        <div className="md:col-span-4 flex flex-col justify-center items-center">
+                            <img
+                                src={company_logo}
+                                className="w-44 rounded-lg shadow-2xl" />
+                        </div>
+                        <div className="md:col-span-8">
                             <h1 className="text-5xl font-bold text-white">{company}</h1>
                             <p className="flex items-center"><MdLocationOn></MdLocationOn> {location}</p>
                             <h3 className="text-xl font-bold">{title}</h3>
@@ -56,7 +58,8 @@ const Jobditals = () => {
                             <p className="font-bold">ApplicationDeadline: {applicationDeadline}</p>
                             <p className="font-bold">Email: {hr_email}</p>
                             <p className="font-bold"> Name:{hr_name}</p>
-                            <Link to={`/jobapply/${_id}`} className="py-3">
+                            <br />
+                            <Link to={`/jobapply/${_id}`}>
                                 <button className="btn btn-sm btn-outline hover:bg-[#505690]">Apply Now</button>
                             </Link>
                         </div>

@@ -8,21 +8,18 @@ const AuthPorvaider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    console.log(loading);
+    // console.log(loading);
 
 
     const creatUser = (email, password) => {
-        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const singIn = (email, password) => {
-        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const provider = new GoogleAuthProvider();
     const googleLogin = () => {
-        // setLoading(true)
         return signInWithPopup(auth, provider)
     }
     const singOut = () => {
