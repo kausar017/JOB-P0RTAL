@@ -9,6 +9,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigat = useNavigate()
     const location = useLocation()
+    const from = location?.state?.pathname || '/';
+    console.log(from);
+
     const { singIn, googleLogin } = useContext(Authcontext)
 
     const validatePassword = (password) => {
@@ -47,7 +50,8 @@ const Login = () => {
         singIn(email, password)
             .then(res => {
                 console.log(res);
-                Swal.fire('Login Succesully')
+                navigat(from)
+                Swal.fire('Login Succesfully')
                 form.reset()
             })
             .catch(error => {
@@ -55,24 +59,28 @@ const Login = () => {
                 Swal.fire('login not succesfully try again later')
                 form.reset()
             })
-
-
     };
 
     const handaleGoogleLogin = () => {
         googleLogin()
-        navigat('/')
+            .then(data => {
+                navigat(from);
+                Swal.fire('google Login Succesfully', data)
+
+            })
     }
+
     return (
         <div >
-            <div className="hero min-h-screen" style={{
-                backgroundImage: `url(${bg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                // height: "100vh",
-                width: "100%",
+            <div className="hero min-h-screen"
+                style={{
+                    backgroundImage: `url(${bg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    // height: "100vh",
+                    width: "100%",
 
-            }}>
+                }}>
                 <div className="container mx-auto md:flex items-center p-3 justify-around py-[110px]">
                     <div className='space-y-4'>
                         <h1 className="text-5xl text-center font-bold max-sm:text-white p-1">Login now!</h1>

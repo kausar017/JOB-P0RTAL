@@ -15,7 +15,7 @@ const Navbar = () => {
     const handaleSingOut = () => {
         singOut()
             .then(() => {
-                Swal.fire('Success', 'Successfully Signed Out', 'success');
+                Swal.fire('LogOUt Success', 'Successfully Signed Out', 'success');
             })
             .catch(error => {
                 Swal.fire('Error', 'User not logged out. Try again later.', 'error');

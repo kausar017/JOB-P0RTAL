@@ -8,6 +8,7 @@ const AuthPorvaider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    console.log(loading);
 
 
     const creatUser = (email, password) => {
@@ -21,7 +22,7 @@ const AuthPorvaider = ({ children }) => {
 
     const provider = new GoogleAuthProvider();
     const googleLogin = () => {
-        setLoading(true)
+        // setLoading(true)
         return signInWithPopup(auth, provider)
     }
     const singOut = () => {
@@ -36,7 +37,7 @@ const AuthPorvaider = ({ children }) => {
 
         })
         return () => {
-            unsubscribe;
+            unsubscribe();
         }
     }, [])
 

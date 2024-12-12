@@ -6,6 +6,9 @@ import Error from "../../pages/Error/Error";
 import Bannar from "../../pages/Home/Bannar";
 import Register from "../../pages/Register/Register";
 import Login from "../../pages/Login/Login";
+import Jobditals from "../../pages/Jobditals/Jobditals";
+import PrivetRoute from "../../Authentication/PrivetRoute/PrivetRoute";
+import JobApply from "../../pages/JobApply/JobApply";
 
 
 const Router = createBrowserRouter([
@@ -23,8 +26,17 @@ const Router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: 'login',
+                path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/detals/:id',
+                element: <PrivetRoute><Jobditals></Jobditals></PrivetRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
+            },
+            {
+                path: '/jobapply/:id',
+                element: <PrivetRoute><JobApply></JobApply> </PrivetRoute>
             }
         ]
     },

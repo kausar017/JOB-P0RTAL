@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import Authcontext from "../../Authentication/context/AuthContext";
 import { FaDollarSign, FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const HotJobs = () => {
 
-    const { user, setLoading } = useContext(Authcontext)
+    const { user } = useContext(Authcontext)
 
     const [userData, setUserData] = useState([]);
 
@@ -12,47 +13,13 @@ const HotJobs = () => {
         fetch('http://localhost:5000/jobs')
             .then(res => res.json())
             .then(data => {
-                setLoading()
+                // setLoading(true)
                 setUserData(data)
                 console.log(data);
 
             })
 
     }, [])
-
-
-    // {
-    //     "_id": "675a40eaffc6189cf55fd43d",
-    //     "title": "Software Engineer",
-    //     "location": "Halishohor, Chittagong",
-    //     "jobType": "Hybrid",
-    //     "category": "Engineering",
-    //     "applicationDeadline": "2024-12-31",
-    //     "salaryRange": {
-    //         "min": 40000,
-    //         "max": 60000,
-    //         "currency": "bdt"
-    //     },
-    //     "description": "We are seeking a skilled Software Engineer to join our dynamic team. The candidate will work on diverse projects and contribute to innovative solutions.",
-    //     "company": "Favorite IT",
-    //     "requirements": [
-    //         "JavaScript",
-    //         "React",
-    //         "Node.js",
-    //         "MongoDB"
-    //     ],
-    //     "responsibilities": [
-    //         "Develop and maintain software",
-    //         "Collaborate with the team",
-    //         "Participate in code reviews"
-    //     ],
-    //     "status": "active",
-    //     "hr_email": "hr@techsolutions.com",
-    //     "hr_name": "Farhan Rahman",
-    //     "company_logo": "https://i.ibb.co/mXD5MNf/facebook.png"
-    // }
-
-
     return (
         <div className="w-8/12 mx-auto py-10">
             <div className="text-center">
@@ -95,7 +62,7 @@ const HotJobs = () => {
                                     </div>
                                     <p className="flex items-center"><span className="font-bold">Salary:</span><FaDollarSign></FaDollarSign> {data.salaryRange.min} - {data.salaryRange.max} {data.salaryRange.currency} </p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-sm btn-outline hover:bg-cyan-700">Apply</button>
+                                        <Link to={`/detals/${data._id}`} className="btn btn-sm btn-outline hover:bg-cyan-700">Detals</Link>
                                     </div>
                                 </div>
                             </div>
