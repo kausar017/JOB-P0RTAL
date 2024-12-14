@@ -64,7 +64,7 @@ const Register = () => {
                 backgroundImage: `url(${bg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "100vh",
+                // height: "100vh",
                 width: "100%",
 
             }}>
@@ -93,7 +93,7 @@ const Register = () => {
                                 <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
-                        <div className="ml-4 my-4 text-white">
+                        <div className="ml-4 my-4 lg:text-white text-center">
                             New to this Website? please <Link className="ml-2 font-semibold underline hover:text-red-500" to={'/login'}>Login</Link>
                         </div>
                     </div>

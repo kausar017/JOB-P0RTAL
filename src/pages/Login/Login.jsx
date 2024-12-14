@@ -112,7 +112,7 @@ const Login = () => {
                                 <button className='btn btn-sm btn-outline hover:bg-rose-500'>Github Login</button>
                             </div>
                         </form>
-                        <div className="ml-4 my-4 text-white">
+                        <div className="ml-4 my-4 lg:text-white text-center">
                             New to this Website? please<Link className="ml-2 font-semibold underline hover:text-red-500" to={'/register'}>Reagister</Link>
                         </div>
                     </div>

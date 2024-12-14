@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import bg from '../../assets/cool-background.svg'
 import Lottie from 'lottie-react';
 import apply from '../../assets/Lottify/apply.json'
@@ -7,6 +7,11 @@ import Authcontext from '../../Authentication/context/AuthContext';
 import Swal from 'sweetalert2';
 
 const JobApply = () => {
+
+    const navigat = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.pathname || '/myapp';
+
 
     const { id } = useParams()
     console.log(id);
@@ -43,6 +48,7 @@ const JobApply = () => {
                 if (data.insertedId) {
                     Swal.fire('Success', 'Successfuly Applyid', 'success')
                 }
+                navigat(from)
             })
             .catch(error => {
                 console.log(error);

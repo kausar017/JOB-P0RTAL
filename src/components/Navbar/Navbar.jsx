@@ -24,17 +24,17 @@ const Navbar = () => {
     }
 
     const link = <>
-        <div className="space-x-3 flex max-sm:flex-col">
+        <div className="space-x-3 flex lg:flex-row md:flex-col max-sm:flex-col ">
             <NavLink to={'/'} className="btn btn-sm  btn-outline text-white bg-purple-500 hover:bg-purple-500"><button>Home</button></NavLink>
-            <NavLink className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500 "><button>Hello</button></NavLink>
-            <NavLink className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500 "><button>Hello</button></NavLink>
-            <NavLink className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500"><button>Hello</button></NavLink>
+            <NavLink to={'/myapp'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500 "><button>My Application</button></NavLink>
+            <NavLink to={'/addjob'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500 "><button>Add Job</button></NavLink>
+            <NavLink to={'/5'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500"><button>Hello</button></NavLink>
 
         </div>
     </>
 
     return (
-        <div className="w-full z-10 fixed  backdrop-blur-lg"
+        <div className="w-full z-10 fixed "
             style={{
                 // backgroundImage: `url(${bg})`,
                 // width: "100%",

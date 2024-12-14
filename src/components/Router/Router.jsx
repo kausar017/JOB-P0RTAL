@@ -9,6 +9,8 @@ import Login from "../../pages/Login/Login";
 import Jobditals from "../../pages/Jobditals/Jobditals";
 import PrivetRoute from "../../Authentication/PrivetRoute/PrivetRoute";
 import JobApply from "../../pages/JobApply/JobApply";
+import MyApplication from "../../pages/MyApplication/MyApplication";
+import AddJob from "../../pages/AddJob/AddJob";
 
 
 const Router = createBrowserRouter([
@@ -37,6 +39,16 @@ const Router = createBrowserRouter([
             {
                 path: '/jobapply/:id',
                 element: <PrivetRoute><JobApply></JobApply> </PrivetRoute>,
+            },
+            {
+                path: '/myapp',
+                element: <PrivetRoute>
+                    <MyApplication></MyApplication>
+                </PrivetRoute>
+            },
+            {
+                path: '/addjob',
+                element: <PrivetRoute><AddJob></AddJob></PrivetRoute>
             }
         ]
     },

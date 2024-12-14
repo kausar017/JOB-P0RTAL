@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HotJobs = () => {
 
-    const { user } = useContext(Authcontext)
+    // const { user } = useContext(Authcontext)
 
     const [userData, setUserData] = useState([]);
 
@@ -53,7 +53,7 @@ const HotJobs = () => {
                                     <p>Requirements:</p>
                                     <div>
                                         {
-                                            data.requirements.map((req, index) =>
+                                            data?.requirements.map((req, index) =>
                                                 <p key={req}>
                                                     {index + 1}) {req}
                                                 </p>
