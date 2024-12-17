@@ -3,12 +3,14 @@ import Authcontext from "../../Authentication/context/AuthContext";
 import bg from '../../assets/cool-background.svg';
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { FaDollarSign } from "react-icons/fa6";
+import axios from "axios";
 
 const MyApplication = () => {
 
     const { user } = useContext(Authcontext)
     console.log(user);
     const [jobs, setJobs] = useState([])
+    console.log(jobs);
 
 
     useEffect(() => {
@@ -19,7 +21,8 @@ const MyApplication = () => {
                 setJobs(data)
 
             })
-    }, [user.email])
+      
+    }, [user])
 
     return (
         <div className="py-[110px]"

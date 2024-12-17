@@ -28,7 +28,7 @@ const Navbar = () => {
             <NavLink to={'/'} className="btn btn-sm  btn-outline text-white bg-purple-500 hover:bg-purple-500"><button>Home</button></NavLink>
             <NavLink to={'/myapp'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500 "><button>My Application</button></NavLink>
             <NavLink to={'/addjob'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500 "><button>Add Job</button></NavLink>
-            <NavLink to={'/5'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500"><button>Hello</button></NavLink>
+            <NavLink to={'/mypostedjob'} className="btn btn-sm hover:bg-purple-500 btn-outline  text-white bg-purple-500"><button>My posted Jobs</button></NavLink>
 
         </div>
     </>

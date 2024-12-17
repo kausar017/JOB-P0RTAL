@@ -15,12 +15,12 @@ const Bannar = () => {
                     width: "100%",
 
                 }}>
-                <div className='container mx-auto lg:flex items-center p-3 justify-around min-h-[920px] pt-[110px]'>
+                <div className='container mx-auto lg:flex items-center p-3 justify-around min-h-[800px] pt-[110px]'>
                     <div>
                         <motion.h1 className="text-5xl font-bold text-center lg:text-left max-sm:text-white">Latast <motion.span
                             animate={{ color: ['#ee7007', '#19ee07', '#8207ee'] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
-                        >Jobe</motion.span> For You!</motion.h1>
+                        >Job</motion.span> For You!</motion.h1>
                         <p className="py-6 text-center lg:text-left">
                             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                             quasi. In deleniti eaque aut repudiandae et a id nisi.

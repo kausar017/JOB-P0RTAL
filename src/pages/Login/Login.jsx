@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import Authcontext from '../../Authentication/context/AuthContext';
 import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
     const navigat = useNavigate()
@@ -49,9 +50,12 @@ const Login = () => {
         singIn(email, password)
             .then(res => {
                 console.log(res);
-                navigat(from)
+                const user = { email: res.user.email }
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => console.log(res.data))
                 Swal.fire('Login Succesfully')
                 form.reset()
+                // navigat(from)
             })
             .catch(error => {
                 console.log(error)

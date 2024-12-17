@@ -2,11 +2,15 @@ import { useState } from 'react';
 import addjob from '../../assets/Lottify/addjob.json'
 import bg from '../../assets/cool-background.svg'
 import Lottie from 'lottie-react';
-import { FaDollarSign } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const AddJob = () => {
+
+    const navigat = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.pathname || '/mypostedjob';
 
 
     const handaleSubmit = e => {
@@ -32,6 +36,7 @@ const AddJob = () => {
             .then(data => {
                 console.log(data);
                 Swal.fire('Succes', 'job Added succsfully', 'success')
+                navigat(from)
             })
             .catch(error => {
                 console.log(error);
@@ -175,6 +180,13 @@ const AddJob = () => {
                                 <span className="label-text lg:text-white">HR Name</span>
                             </label>
                             <input type="text" placeholder="HR Name" name='hr_name' className="p-2 input-bordered" required />
+                        </div>
+                        {/* HR email */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text lg:text-white">HR Email</span>
+                            </label>
+                            <input type="email" placeholder="HR email" name='hr_email' className="p-2 input-bordered" required />
                         </div>
                         {/* company_logo */}
                         <div className="form-control">
